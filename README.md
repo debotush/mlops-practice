@@ -199,3 +199,23 @@ This project is created for educational purposes as part of MLOps Fundamentals c
 ---
 
 **Note:** The dataset file (`green_tripdata_2021-01.parquet`) is not included in the repository due to size. Download it from the course page.
+
+## 🤖 AI Tools Used
+
+This project was developed with assistance from AI tools:
+
+**Claude (Anthropic):**
+- Code structure and implementation guidance
+- Best practices for ML model development
+- Statistical analysis methodology
+- Documentation and report writing assistance
+- Debugging and troubleshooting support
+
+**Human Contributions:**
+- Project requirements analysis
+- Decision-making on model selection
+- Feature engineering choices
+- Results interpretation
+- Final review and validation
+
+**Note:** All code was reviewed, tested, and validated. AI served as a learning assistant and pair programming partner throughout the development process.
