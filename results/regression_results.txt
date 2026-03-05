@@ -1,0 +1,20 @@
+REGRESSION MODEL RESULTS
+==================================================
+
+Model: Linear Regression
+Features used: ['trip_distance', 'passenger_count', 'PULocationID']
+Target: fare_amount
+
+Training samples: 30552
+Test samples: 7639
+
+Performance Metrics:
+  RMSE: $3.98
+  MAE: $1.85
+  R² Score: 0.9149
+
+Feature Coefficients:
+  trip_distance: 2.8863
+  passenger_count: -0.1520
+  PULocationID: 0.0003
+  Intercept: 4.1888
