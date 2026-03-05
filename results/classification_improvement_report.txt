@@ -1,0 +1,20 @@
+CLASSIFICATION MODEL IMPROVEMENT ANALYSIS
+============================================================
+
+NEW FEATURE ADDED: trip_duration_minutes
+
+OLD MODEL (3 features):
+  Features: ['trip_distance', 'fare_amount', 'tip_amount']
+  Accuracy: 0.9174 ± 0.0026
+  F1-Score: 0.9182 ± 0.0026
+
+NEW MODEL (4 features):
+  Features: ['trip_distance', 'fare_amount', 'tip_amount', 'trip_duration_minutes']
+  Accuracy: 0.9182 ± 0.0027
+  F1-Score: 0.9189 ± 0.0026
+
+============================================================
+SAME RISKS AS REGRESSION MODEL:
+============================================================
+See regression_improvement_report.txt for detailed analysis
+of risks related to trip_duration_minutes feature.

@@ -1,0 +1,69 @@
+REGRESSION MODEL IMPROVEMENT ANALYSIS
+============================================================
+
+NEW FEATURE ADDED: trip_duration_minutes
+  - Calculated from pickup and dropoff timestamps
+  - Represents how long the trip took
+
+OLD MODEL (3 features):
+  Features: ['trip_distance', 'passenger_count', 'PULocationID']
+  RMSE: $3.83 ± $0.17
+  R²: 0.9198 ± 0.0064
+
+NEW MODEL (4 features):
+  Features: ['trip_distance', 'passenger_count', 'PULocationID', 'trip_duration_minutes']
+  RMSE: $2.85 ± $0.22
+  R²: 0.9556 ± 0.0067
+
+============================================================
+ADDRESSING ASSIGNMENT QUESTIONS:
+============================================================
+
+Q1: How can you ensure that the improvement is not due to randomness?
+
+Answer:
+  1. Cross-validation: We ran the model 5 times with different data splits
+     - Old model RMSE variation: ± $0.17
+     - New model RMSE variation: ± $0.22
+     - Low variation = consistent performance
+
+  2. Statistical testing: t-test p-value = 0.000093
+     - p < 0.05: Improvement is statistically significant!
+     - This tells us if the difference is real or just luck
+
+  3. Multiple metrics: We checked RMSE, MAE, and R² (all improved)
+     - If only one metric improved, it might be random
+     - All metrics improving = strong evidence
+
+
+Q2: What risks exist if this feature cannot be reliably generated in production?
+
+Answer:
+  FEATURE: trip_duration_minutes
+
+  RISKS:
+  1. Real-time prediction problem:
+     - To predict fare BEFORE trip ends, we don't know duration yet!
+     - Feature only available AFTER trip completes
+     - Cannot use this model for pre-trip fare estimates
+
+  2. Data availability:
+     - Requires accurate timestamp data
+     - GPS/system failures could make timestamps unreliable
+     - Missing data = model cannot make predictions
+
+  3. Data leakage risk:
+     - Duration might correlate with traffic, which affects fare
+     - But if fare is already set before trip, this creates circular logic
+     - Model might be 'cheating' by using future information
+
+  4. Production deployment issues:
+     - Need real-time timestamp processing
+     - Time zone handling, clock synchronization
+     - Edge cases: very long trips, overnight trips
+
+  MITIGATION STRATEGIES:
+  - Use estimated duration based on distance/traffic (not actual)
+  - Have fallback model without duration feature
+  - Monitor feature availability in production
+  - Validate timestamps before using them
