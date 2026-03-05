@@ -1,0 +1,32 @@
+CLASSIFICATION MODEL RESULTS
+==================================================
+
+Model: Random Forest Classifier
+Features used: ['trip_distance', 'fare_amount', 'tip_amount']
+Target: payment_type (1=Credit Card, 2=Cash)
+
+Training samples: 30418
+Test samples: 7605
+
+Performance Metrics:
+  Accuracy: 0.9199 (91.99%)
+  Precision: 0.9296
+  Recall: 0.9199
+  F1-Score: 0.9207
+
+Feature Importance:
+  tip_amount: 0.8997
+  fare_amount: 0.0503
+  trip_distance: 0.0500
+
+==================================================
+Classification Report:
+==================================================
+              precision    recall  f1-score   support
+
+ Credit Card       0.99      0.88      0.93      4595
+        Cash       0.84      0.98      0.91      3010
+
+    accuracy                           0.92      7605
+   macro avg       0.91      0.93      0.92      7605
+weighted avg       0.93      0.92      0.92      7605
