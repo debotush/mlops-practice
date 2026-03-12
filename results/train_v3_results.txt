@@ -1,0 +1,13 @@
+V3 TRAINING RESULTS
+==================================================
+
+Model: Linear Regression retrained on Jan + Feb 2021
+
+Combined dataset shape: (71970, 20)
+Training samples: 57576
+Test samples: 14394
+
+Performance Metrics:
+  RMSE: $4.28
+  MAE: $1.98
+  R² Score: 0.9083
