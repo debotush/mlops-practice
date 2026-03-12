@@ -1,0 +1,13 @@
+V2 EVALUATION RESULTS
+==================================================
+
+Model: V1 Linear Regression (trained on Jan 2021 only)
+Evaluation data: Jan + Feb 2021 combined
+
+Combined dataset shape: (71970, 20)
+Test samples: 14394
+
+Performance Metrics:
+  RMSE: $4.28
+  MAE: $1.93
+  R² Score: 0.9083
