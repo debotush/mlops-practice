@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load and clean data
-df = pd.read_parquet('green_tripdata_2021-01.parquet')
+df = pd.read_parquet('data/green_tripdata_2021-01.parquet')
 df_clean = df.dropna(subset=['passenger_count', 'trip_distance', 'fare_amount', 'total_amount', 'PULocationID'])
 df_clean = df_clean[(df_clean['trip_distance'] > 0) & (df_clean['trip_distance'] < 100)]
 df_clean = df_clean[(df_clean['fare_amount'] > 0) & (df_clean['fare_amount'] < 200)]
@@ -53,9 +53,9 @@ print(f"MAE: ${mae_lr:.2f}")
 print(f"R² Score: {r2_lr:.4f}")
 
 # Save model
-with open('linear_regression_model.pkl', 'wb') as f:
+with open('data/linear_regression_model.pkl', 'wb') as f:
     pickle.dump(lr_model, f)
-print("\nModel saved as 'linear_regression_model.pkl'")
+print("\nModel saved as 'data/linear_regression_model.pkl'")
 
 # Create results directory
 import os
